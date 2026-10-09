@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace & Glow ✨ | Cozy Faith & Aesthetic Space</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display for elegant serif, Outfit for clean Gen Z typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti JS for answered prayers -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blush: {
+                            50: '#fff5f7',
+                            100: '#ffeef2',
+                            200: '#ffd6e0',
+                            300: '#fca1b7',
+                            400: '#f76f92',
+                        },
+                        cream: '#faf6f0',
+                        warmbeige: '#f3ece1',
+                        softsage: '#e2ece9',
+                        lavender: '#f0e6f6',
+                        rosegold: '#d4a373',
+                        softbrown: '#7d6b5d'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Sacramento', 'cursive']
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #faf6f0;
+            color: #5a4e44;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Soft Glow Shadows & Aesthetics */
+        .aesthetic-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px -5px rgba(247, 111, 146, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .aesthetic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px -5px rgba(247, 111, 146, 0.15), 0 8px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .pill-btn {
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(247, 111, 146, 0.2);
+        }
+
+        .pill-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(247, 111, 146, 0.35);
+        }
+
+        .pill-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Sparkle float animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .float-anim {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf6f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffd6e0;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fca1b7;
+        }
+
+        /* Toast Popup Animation */
+        #toast {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .polaroid-shadow {
+            box-shadow: 0 8px 20px rgba(125, 107, 93, 0.12);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-blush-200 selection:text-blush-400">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-20px] opacity-0 pointer-events-none bg-white/90 backdrop-blur-md border border-blush-200 text-softbrown px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-medium">
+        <span id="toast-icon" class="text-blush-400 text-lg">✨</span>
+        <span id="toast-msg">Action completed!</span>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-cream/80 backdrop-blur-md border-b border-blush-100/60 px-4 lg:px-8 py-3 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-full bg-blush-200 flex items-center justify-center text-blush-400 text-xl font-serif shadow-sm group-hover:rotate-12 transition-transform">
+                    ✨
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-softbrown block leading-none">Grace & Glow</span>
+                    <span class="text-[10px] font-sans tracking-widest uppercase text-blush-400 font-semibold">Faith & Aesthetic Space</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links Desktop -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-white/60 p-1.5 rounded-full border border-blush-100">
+                <a href="#verse-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Verse Drops</a>
+                <a href="#mood-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Heart Check</a>
+                <a href="#journal-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Prayer Jar 🏺</a>
+                <a href="#habits-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Glow Habits</a>
+                <a href="#worship-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Music Corner</a>
+                <a href="#wallpaper-section" class="px-4 py-2 rounded-full text-xs font-semibold text-softbrown hover:bg-blush-100/70 transition-colors">Wallpapers</a>
+            </nav>
+
+            <!-- Quick Action Favorite Button -->
+            <button onclick="toggleFavoritesModal()" class="hidden sm:flex items-center gap-2 bg-blush-100 hover:bg-blush-200 text-blush-400 font-medium px-4 py-2 rounded-full text-xs transition-colors">
+                <i class="fa-solid fa-heart text-xs"></i>
+                <span>Saved Verses (<span id="fav-count">0</span>)</span>
+            </button>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-softbrown p-2 focus:outline-none" onclick="toggleMobileNav()">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 pt-3 border-t border-blush-100 flex flex-col space-y-2 pb-2">
+            <a href="#verse-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">✨ Verse Drops</a>
+            <a href="#mood-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">🌷 Heart Check</a>
+            <a href="#journal-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">🏺 Prayer Jar</a>
+            <a href="#habits-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">🌸 Glow Habits</a>
+            <a href="#worship-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">🎧 Worship Corner</a>
+            <a href="#wallpaper-section" onclick="toggleMobileNav()" class="px-4 py-2 rounded-xl text-sm font-medium text-softbrown hover:bg-blush-50">🖼️ Wallpapers</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 space-y-12 sm:space-y-16">
+
+        <section id="home" class="relative overflow-hidden rounded-5xl bg-gradient-to-br from-blush-100 via-warmbeige to-lavender p-6 sm:p-12 text-center border border-white shadow-sm">
+            <div class="absolute top-4 left-6 text-blush-300 text-3xl float-anim opacity-70">✨</div>
+            <div class="absolute bottom-6 right-8 text-rosegold text-2xl float-anim opacity-60" style="animation-delay: 1.5s;">🌷</div>
+            <div class="absolute top-10 right-12 text-lavender-400 text-2xl float-anim opacity-60" style="animation-delay: 2.5s;">🕊️</div>
+
+            <div class="max-w-2xl mx-auto space-y-4 relative z-10">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/80 text-blush-400 text-xs font-semibold tracking-wider uppercase shadow-xs">
+                    Welcome to your cozy faith sanctuary ♡
+                </span>
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-softbrown font-bold leading-tight">
+                    Rooted in Grace, <br/><span class="italic font-normal text-blush-400">Glowing in Purpose</span> ✨
+                </h1>
+                <p class="text-sm sm:text-base text-softbrown/80 max-w-lg mx-auto font-light leading-relaxed">
+                    Your daily dose of comforting scripture, cozy faith journaling, worship aesthetic vibes, and community prayers.
+                </p>
+                <div class="pt-2 flex flex-wrap justify-center gap-3">
+                    <a href="#verse-section" class="pill-btn bg-blush-400 hover:bg-blush-300 text-white font-semibold px-6 py-3 rounded-full text-xs sm:text-sm inline-flex items-center gap-2">
+                        <span>Get Today's Verse</span>
+                        <i class="fa-solid fa-sparkles"></i>
+                    </a>
+                    <a href="#mood-section" class="pill-btn bg-white hover:bg-blush-50 text-softbrown font-semibold px-6 py-3 rounded-full text-xs sm:text-sm inline-flex items-center gap-2 border border-blush-200">
+                        <span>How's Your Heart?</span>
+                        <span>🌷</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="verse-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Scripture Highlight </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">Sparkle of Hope ✨</h2>
+            </div>
+
+            <div class="aesthetic-card rounded-4xl p-6 sm:p-10 relative overflow-hidden max-w-3xl mx-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <div id="verse-tags" class="flex flex-wrap gap-2">
+                        <!-- Dynamic Tags -->
+                    </div>
+                    <button onclick="copyCurrentVerse()" class="text-xs text-softbrown/70 hover:text-blush-400 transition-colors flex items-center gap-1 bg-warmbeige/60 px-3 py-1.5 rounded-full">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+
+                <div class="my-6 text-center space-y-4 min-h-[120px] flex flex-col justify-center">
+                    <p id="verse-text" class="font-serif text-xl sm:text-2xl text-softbrown italic leading-relaxed">
+                        "For I know the plans I have for you," declares the LORD, "plans to prosper you and not to harm you, plans to give you hope and a future."
+                    </p>
+                    <span id="verse-ref" class="text-xs sm:text-sm font-semibold tracking-wider text-blush-400 uppercase block">
+                        Jeremiah 29:11
+                    </span>
+                </div>
+
+                <div class="pt-6 border-t border-blush-100 flex flex-wrap items-center justify-between gap-4">
+                    <button id="fav-btn" onclick="toggleSaveCurrentVerse()" class="text-xs sm:text-sm font-medium text-softbrown hover:text-blush-400 transition-colors flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-blush-200">
+                        <i id="fav-btn-icon" class="fa-regular fa-heart text-blush-400"></i>
+                        <span id="fav-btn-text">Save to Favorites</span>
+                    </button>
+
+                    <button onclick="generateRandomVerse()" class="pill-btn bg-softbrown hover:bg-softbrown/90 text-white font-medium px-5 py-2.5 rounded-full text-xs sm:text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>New Verse Drop ✨</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="mood-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Daily Heart Check </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">How is your heart today? 🌷</h2>
+                <p class="text-xs sm:text-sm text-softbrown/70 max-w-md mx-auto">Select how you're feeling right now for a tailored scripture, gentle prayer, and encouragement.</p>
+            </div>
+
+            <!-- Mood Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto">
+                <button onclick="selectMood('anxious')" class="mood-btn pill-btn bg-white hover:bg-blush-100 border border-blush-200 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium text-softbrown flex items-center gap-2 transition-all">
+                    <span>☁️ Anxious / Overwhelmed</span>
+                </button>
+                <button onclick="selectMood('grateful')" class="mood-btn pill-btn bg-white hover:bg-blush-100 border border-blush-200 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium text-softbrown flex items-center gap-2 transition-all">
+                    <span>🌷 Grateful & Blessed</span>
+                </button>
+                <button onclick="selectMood('exhausted')" class="mood-btn pill-btn bg-white hover:bg-blush-100 border border-blush-200 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium text-softbrown flex items-center gap-2 transition-all">
+                    <span>🧸 Tired & Exhausted</span>
+                </button>
+                <button onclick="selectMood('joyful')" class="mood-btn pill-btn bg-white hover:bg-blush-100 border border-blush-200 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium text-softbrown flex items-center gap-2 transition-all">
+                    <span>💖 Full of Joy</span>
+                </button>
+                <button onclick="selectMood('seeking')" class="mood-btn pill-btn bg-white hover:bg-blush-100 border border-blush-200 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium text-softbrown flex items-center gap-2 transition-all">
+                    <span>🕊️ Seeking Direction</span>
+                </button>
+            </div>
+
+            <!-- Mood Response Card Display -->
+            <div id="mood-response-card" class="aesthetic-card rounded-4xl p-6 sm:p-8 max-w-3xl mx-auto hidden transition-all duration-500 bg-gradient-to-br from-white via-cream to-blush-50">
+                <div id="mood-content" class="space-y-5">
+                    <!-- Dynamic Mood Content Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="journal-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Faith Journal </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">Drop a Prayer in the Jar 🏺✨</h2>
+                <p class="text-xs sm:text-sm text-softbrown/70 max-w-md mx-auto">Leave your prayer requests or gratitude notes here. Watch your faith journey grow!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Add Prayer Form -->
+                <div class="aesthetic-card rounded-4xl p-6 border border-blush-100 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="font-serif text-lg font-bold text-softbrown flex items-center gap-2">
+                            <span>Write a Note</span>
+                            <span class="text-xs font-sans text-blush-400 bg-blush-100 px-2 py-0.5 rounded-full">Private to device</span>
+                        </h3>
+                        <div>
+                            <label class="block text-xs font-semibold text-softbrown/70 mb-1">Type (Prayer or Praise)</label>
+                            <select id="prayer-type" class="w-full bg-cream border border-blush-200 rounded-2xl px-3 py-2 text-xs sm:text-sm text-softbrown focus:outline-none focus:ring-2 focus:ring-blush-300">
+                                <option value="prayer">🙏 Prayer Request</option>
+                                <option value="gratitude">🌷 Praise & Gratitude</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-softbrown/70 mb-1">Your Name / Alias (Optional)</label>
+                            <input id="prayer-author" type="text" placeholder="e.g. Daughter of the King ✨" class="w-full bg-cream border border-blush-200 rounded-2xl px-3 py-2 text-xs sm:text-sm text-softbrown focus:outline-none focus:ring-2 focus:ring-blush-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-softbrown/70 mb-1">Your Prayer / Note</label>
+                            <textarea id="prayer-text" rows="4" placeholder="Dear God, placing my heart in Your hands regarding..." class="w-full bg-cream border border-blush-200 rounded-2xl px-3 py-2 text-xs sm:text-sm text-softbrown focus:outline-none focus:ring-2 focus:ring-blush-300 resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <button onclick="addPrayerNote()" class="mt-4 pill-btn w-full bg-blush-400 hover:bg-blush-300 text-white font-semibold py-2.5 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2">
+                        <span>Drop in Jar</span>
+                        <span>✨</span>
+                    </button>
+                </div>
+
+                <!-- Digital Jar / Sticky Notes Display -->
+                <div class="lg:col-span-2 bg-warmbeige/50 rounded-4xl p-6 border border-blush-100 min-h-[340px] flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-softbrown/80 flex items-center gap-1.5">
+                            <i class="fa-solid fa-box-archive text-blush-400"></i> Active Prayers & Praises (<span id="prayer-count">0</span>)
+                        </span>
+                        <div class="flex gap-2">
+                            <button onclick="filterPrayers('all')" class="text-[11px] px-3 py-1 rounded-full bg-white text-softbrown font-medium shadow-xs">All</button>
+                            <button onclick="filterPrayers('answered')" class="text-[11px] px-3 py-1 rounded-full bg-blush-100 text-blush-400 font-medium">Answered 🎉</button>
+                        </div>
+                    </div>
+
+                    <div id="prayer-notes-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1">
+                        <!-- Dynamic Sticky Notes generated here -->
+                    </div>
+
+                    <div id="empty-journal-msg" class="text-center py-12 space-y-2">
+                        <span class="text-3xl">🏺</span>
+                        <p class="text-xs text-softbrown/60">Your prayer jar is empty! Add your first prayer or gratitude note above.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="habits-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Daily Glow Routine </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">Cozy Faith Habits 🌸</h2>
+            </div>
+
+            <div class="aesthetic-card rounded-4xl p-6 sm:p-8 max-w-3xl mx-auto space-y-6">
+                <!-- Progress Header -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs sm:text-sm font-semibold text-softbrown">
+                        <span>Today's Progress</span>
+                        <span id="habit-progress-text" class="text-blush-400">0 of 4 Completed</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-full h-3 bg-warmbeige rounded-full overflow-hidden p-0.5 border border-blush-100">
+                        <div id="habit-progress-bar" class="h-full bg-gradient-to-r from-blush-200 to-blush-400 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                    </div>
+                    <p id="habit-encouragement" class="text-xs text-center font-medium text-blush-400 italic pt-1">
+                        "Rooted & Blooming... Let's spend time with Him today! ✨"
+                    </p>
+                </div>
+
+                <!-- Habits List -->
+                <div class="space-y-3" id="habits-container">
+                    <!-- Dynamic Habits Rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="worship-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Visual & Audio Corner </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">Worship & Chill Vibes 🎧</h2>
+                <p class="text-xs sm:text-sm text-softbrown/70 max-w-md mx-auto">Cozy playlists to study, pray, or meditate with background ambience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- Playlist Card 1 -->
+                <div class="aesthetic-card rounded-3xl p-5 border border-blush-100 flex flex-col justify-between group hover:border-blush-300">
+                    <div class="space-y-3">
+                        <div class="h-32 rounded-2xl bg-gradient-to-br from-blush-200 to-warmbeige flex items-center justify-center text-4xl shadow-inner relative overflow-hidden">
+                            <span>☕✨</span>
+                            <span class="absolute bottom-2 right-2 text-[10px] bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-full font-medium text-softbrown">Lo-Fi</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-softbrown text-base">Christian Girl Autumn Lo-Fi</h3>
+                            <p class="text-xs text-softbrown/70">Soft instrumental beats & chill worship melodies for study time.</p>
+                        </div>
+                    </div>
+                    <button onclick="playAudioTrack('Lo-Fi Worship Chill', '☕✨')" class="mt-4 pill-btn w-full bg-cream hover:bg-blush-100 text-softbrown font-medium py-2 rounded-xl text-xs flex items-center justify-center gap-2 border border-blush-200">
+                        <i class="fa-solid fa-play text-blush-400 text-xs"></i>
+                        <span>Listen Vibe</span>
+                    </button>
+                </div>
+
+                <!-- Playlist Card 2 -->
+                <div class="aesthetic-card rounded-3xl p-5 border border-blush-100 flex flex-col justify-between group hover:border-blush-300">
+                    <div class="space-y-3">
+                        <div class="h-32 rounded-2xl bg-gradient-to-br from-lavender to-blush-100 flex items-center justify-center text-4xl shadow-inner relative overflow-hidden">
+                            <span>🕊️🌿</span>
+                            <span class="absolute bottom-2 right-2 text-[10px] bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-full font-medium text-softbrown">Acoustic</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-softbrown text-base">Gentle Acoustic Hymns</h3>
+                            <p class="text-xs text-softbrown/70">Stripped back acoustic guitar & piano praise for quiet times.</p>
+                        </div>
+                    </div>
+                    <button onclick="playAudioTrack('Gentle Acoustic Hymns', '🕊️🌿')" class="mt-4 pill-btn w-full bg-cream hover:bg-blush-100 text-softbrown font-medium py-2 rounded-xl text-xs flex items-center justify-center gap-2 border border-blush-200">
+                        <i class="fa-solid fa-play text-blush-400 text-xs"></i>
+                        <span>Listen Vibe</span>
+                    </button>
+                </div>
+
+                <!-- Playlist Card 3 -->
+                <div class="aesthetic-card rounded-3xl p-5 border border-blush-100 flex flex-col justify-between group hover:border-blush-300">
+                    <div class="space-y-3">
+                        <div class="h-32 rounded-2xl bg-gradient-to-br from-softsage to-warmbeige flex items-center justify-center text-4xl shadow-inner relative overflow-hidden">
+                            <span>💖☁️</span>
+                            <span class="absolute bottom-2 right-2 text-[10px] bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-full font-medium text-softbrown">Pop / Praise</span>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-softbrown text-base">Gen Z Sunday Glow</h3>
+                            <p class="text-xs text-softbrown/70">Upbeat uplifting faith anthems to kickstart your morning with joy.</p>
+                        </div>
+                    </div>
+                    <button onclick="playAudioTrack('Gen Z Sunday Glow Anthem', '💖☁️')" class="mt-4 pill-btn w-full bg-cream hover:bg-blush-100 text-softbrown font-medium py-2 rounded-xl text-xs flex items-center justify-center gap-2 border border-blush-200">
+                        <i class="fa-solid fa-play text-blush-400 text-xs"></i>
+                        <span>Listen Vibe</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Simulated Mini Player Floating Control -->
+            <div id="mini-player" class="hidden max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-full p-3 border border-blush-200 shadow-xl flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 pl-2">
+                    <div id="player-icon" class="w-9 h-9 rounded-full bg-blush-100 flex items-center justify-center text-sm">🎵</div>
+                    <div>
+                        <h4 id="player-title" class="text-xs font-bold text-softbrown truncate max-w-[160px]">Now Playing</h4>
+                        <span id="player-status" class="text-[10px] text-blush-400 font-medium">Playing Ambient Vibes...</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 pr-2">
+                    <button onclick="toggleAudioPlay()" id="player-toggle-btn" class="w-8 h-8 rounded-full bg-blush-400 text-white flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                    <button onclick="closeAudioPlayer()" class="text-softbrown/40 hover:text-softbrown text-xs px-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="wallpaper-section" class="scroll-mt-24 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-blush-400 text-xs font-semibold tracking-widest uppercase"> Free Lockscreen Drops </span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-softbrown font-bold">Aesthetic Wallpapers 🖼️✨</h2>
+                <p class="text-xs sm:text-sm text-softbrown/70 max-w-md mx-auto">Keep God's promises front and center on your phone.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <!-- Wallpaper Card 1 -->
+                <div class="group relative rounded-3xl overflow-hidden border border-blush-100 shadow-xs bg-gradient-to-b from-blush-100 via-white to-warmbeige p-6 h-80 flex flex-col justify-between text-center transition-transform hover:-translate-y-1">
+                    <span class="text-xs font-serif text-blush-400 uppercase tracking-widest">Grace & Peace</span>
+                    <div class="my-auto space-y-2">
+                        <p class="font-serif italic text-lg text-softbrown">"Be still and know that I am God."</p>
+                        <span class="text-[10px] font-semibold text-softbrown/60 block">Psalm 46:10</span>
+                    </div>
+                    <button onclick="downloadWallpaper('Be Still & Know', 'Psalm 46:10')" class="pill-btn bg-white/90 hover:bg-white text-softbrown text-xs font-medium py-2 px-4 rounded-full border border-blush-200 opacity-90 group-hover:opacity-100 transition-opacity">
+                        Download Wallpaper 📲
+                    </button>
+                </div>
+
+                <!-- Wallpaper Card 2 -->
+                <div class="group relative rounded-3xl overflow-hidden border border-blush-100 shadow-xs bg-gradient-to-b from-lavender via-cream to-blush-50 p-6 h-80 flex flex-col justify-between text-center transition-transform hover:-translate-y-1">
+                    <span class="text-xs font-serif text-blush-400 uppercase tracking-widest">Unstoppable Light</span>
+                    <div class="my-auto space-y-2">
+                        <p class="font-serif italic text-lg text-softbrown">"She is clothed with strength and dignity."</p>
+                        <span class="text-[10px] font-semibold text-softbrown/60 block">Proverbs 31:25</span>
+                    </div>
+                    <button onclick="downloadWallpaper('Strength & Dignity', 'Proverbs 31:25')" class="pill-btn bg-white/90 hover:bg-white text-softbrown text-xs font-medium py-2 px-4 rounded-full border border-blush-200 opacity-90 group-hover:opacity-100 transition-opacity">
+                        Download Wallpaper 📲
+                    </button>
+                </div>
+
+                <!-- Wallpaper Card 3 -->
+                <div class="group relative rounded-3xl overflow-hidden border border-blush-100 shadow-xs bg-gradient-to-b from-softsage via-white to-warmbeige p-6 h-80 flex flex-col justify-between text-center transition-transform hover:-translate-y-1">
+                    <span class="text-xs font-serif text-blush-400 uppercase tracking-widest">Heavenly Joy</span>
+                    <div class="my-auto space-y-2">
+                        <p class="font-serif italic text-lg text-softbrown">"The Lord is my strength and my shield."</p>
+                        <span class="text-[10px] font-semibold text-softbrown/60 block">Psalm 28:7</span>
+                    </div>
+                    <button onclick="downloadWallpaper('Strength & Shield', 'Psalm 28:7')" class="pill-btn bg-white/90 hover:bg-white text-softbrown text-xs font-medium py-2 px-4 rounded-full border border-blush-200 opacity-90 group-hover:opacity-100 transition-opacity">
+                        Download Wallpaper 📲
+                    </button>
+                </div>
+
+                <!-- Wallpaper Card 4 -->
+                <div class="group relative rounded-3xl overflow-hidden border border-blush-100 shadow-xs bg-gradient-to-b from-warmbeige via-blush-50 to-lavender p-6 h-80 flex flex-col justify-between text-center transition-transform hover:-translate-y-1">
+                    <span class="text-xs font-serif text-blush-400 uppercase tracking-widest">Radiant Love</span>
+                    <div class="my-auto space-y-2">
+                        <p class="font-serif italic text-lg text-softbrown">"You are altogether beautiful, my darling."</p>
+                        <span class="text-[10px] font-semibold text-softbrown/60 block">Song of Solomon 4:7</span>
+                    </div>
+                    <button onclick="downloadWallpaper('Altogether Beautiful', 'Song of Solomon 4:7')" class="pill-btn bg-white/90 hover:bg-white text-softbrown text-xs font-medium py-2 px-4 rounded-full border border-blush-200 opacity-90 group-hover:opacity-100 transition-opacity">
+                        Download Wallpaper 📲
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="aesthetic-card rounded-5xl p-8 sm:p-12 text-center max-w-3xl mx-auto bg-gradient-to-r from-blush-100/60 via-cream to-lavender/60 border border-white">
+            <div class="space-y-4 max-w-md mx-auto">
+                <span class="text-2xl">💌</span>
+                <h3 class="font-serif text-2xl text-softbrown font-bold">Join the "Weekly Faith Drop"</h3>
+                <p class="text-xs sm:text-sm text-softbrown/70">Get cute encouragement, printable lockscreens, and worship playlist drops straight to your inbox every Sunday morning ✨</p>
+
+                <form onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-2 pt-2">
+                    <input type="email" required placeholder="Enter your email address..." class="flex-grow bg-white border border-blush-200 rounded-full px-4 py-2.5 text-xs text-softbrown focus:outline-none focus:ring-2 focus:ring-blush-300">
+                    <button type="submit" class="pill-btn bg-blush-400 hover:bg-blush-300 text-white font-medium px-6 py-2.5 rounded-full text-xs">
+                        Subscribe ♡
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="fav-modal" class="fixed inset-0 bg-softbrown/30 backdrop-blur-xs z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-4xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-blush-100 transform scale-95 transition-transform duration-300" id="fav-modal-content">
+            <div class="flex justify-between items-center border-b border-blush-100 pb-3">
+                <h3 class="font-serif text-lg font-bold text-softbrown flex items-center gap-2">
+                    <span>Saved Scripture Drops</span>
+                    <span class="text-xs text-blush-400 font-sans font-normal">♡</span>
+                </h3>
+                <button onclick="toggleFavoritesModal()" class="text-softbrown/40 hover:text-softbrown text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="fav-verses-list" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                <!-- Dynamically populated saved verses -->
+            </div>
+
+            <div class="pt-2 text-right">
+                <button onclick="toggleFavoritesModal()" class="px-5 py-2 rounded-full bg-warmbeige text-softbrown text-xs font-semibold hover:bg-blush-100 transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-cream border-t border-blush-100/80 py-8 px-4 text-center mt-12 space-y-4">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-softbrown/70">
+            <div class="flex items-center gap-2 font-serif text-sm font-bold text-softbrown">
+                <span>Grace & Glow ✨</span>
+            </div>
+            <p class="font-light">Made with love & grace for Gen Z faith warriors ♡</p>
+            <div class="flex items-center gap-4 text-blush-400 text-sm">
+                <a href="#home" class="hover:text-blush-300 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#home" class="hover:text-blush-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#home" class="hover:text-blush-300 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#home" class="hover:text-blush-300 transition-colors"><i class="fa-solid fa-heart"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA STORES ---
+        const versesDatabase = [
+            {
+                text: "For I know the plans I have for you,\" declares the LORD, \"plans to prosper you and not to harm you, plans to give you hope and a future.",
+                ref: "Jeremiah 29:11",
+                tags: ["#Hope", "#Purpose", "#Trust"]
+            },
+            {
+                text: "She is clothed with strength and dignity; she can laugh at the days to come.",
+                ref: "Proverbs 31:25",
+                tags: ["#Strength", "#Confidence", "#GirlPower"]
+            },
+            {
+                text: "Be still, and know that I am God.",
+                ref: "Psalm 46:10",
+                tags: ["#Peace", "#Stillness", "#Calm"]
+            },
+            {
+                text: "You are altogether beautiful, my darling; there is no flaw in you.",
+                ref: "Song of Solomon 4:7",
+                tags: ["#SelfLove", "#Beauty", "#Identity"]
+            },
+            {
+                text: "Cast all your anxiety on Him because He cares for you.",
+                ref: "1 Peter 5:7",
+                tags: ["#Anxiety", "#Care", "#Rest"]
+            },
+            {
+                text: "The Lord is in her midst; she shall not be moved; God will help her when morning dawns.",
+                ref: "Psalm 46:5",
+                tags: ["#Protection", "#Strength", "#Morning"]
+            },
+            {
+                text: "Do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you.",
+                ref: "Isaiah 41:10",
+                tags: ["#Courage", "#Comfort", "#Faith"]
+            }
+        ];
+
+        const moodData = {
+            anxious: {
+                title: "For When You Feel Anxious ☁️",
+                verse: "“Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.” — John 14:27",
+                prayer: "Dear Lord, take my racing thoughts right now. Wrap me in Your gentle stillness and remind me that You hold tomorrow in Your loving hands. Amen. ✨",
+                encouragement: "Take a deep breath in... hold... and release. God is fightinig your battles behind the scenes."
+            },
+            grateful: {
+                title: "For When You Feel Grateful 🌷",
+                verse: "“Give thanks to the LORD, for he is good; his love endures forever.” — Psalm 107:1",
+                prayer: "Jesus, my heart is overflowing with praise today! Thank You for Your endless blessings, little joy moments, and constant presence. Amen! 💖",
+                encouragement: "Keep shining that joyful light! Your grateful heart brings so much sweetness into the world."
+            },
+            exhausted: {
+                title: "For When You're Running on Empty 🧸",
+                verse: "“Come to me, all you who are weary and burdened, and I will give you rest.” — Matthew 11:28",
+                prayer: "Father, I am so tired. I give You permission to take my heavy load today. Give my mind and body true, restorative rest. Amen. 💤",
+                encouragement: "It’s completely okay to rest. You don’t have to prove anything to be worthy of God’s love."
+            },
+            joyful: {
+                title: "For When Your Cup Runs Over 💖",
+                verse: "“This is the day the LORD has made; let us rejoice and be glad in it.” — Psalm 118:24",
+                prayer: "God, thank You for this sunshine season! Use my high energy and joy to brighten someone else's day today. Amen! 🎉",
+                encouragement: "Celebrate this glowing season! Dance, smile, and spread those heavenly vibes."
+            },
+            seeking: {
+                title: "For When You Need Clarity 🕊️",
+                verse: "“Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.” — Proverbs 3:5-6",
+                prayer: "Lord, guide my steps. Give me wisdom and clear sight to recognize Your voice above the noise. Amen. ✨",
+                encouragement: "You don't need the whole 10-year plan—just trust Him for the next right step today."
+            }
+        };
+
+        let currentVerseIndex = 0;
+        let savedVerses = JSON.parse(localStorage.getItem('saved_verses_gg') || '[]');
+        let prayersList = JSON.parse(localStorage.getItem('prayers_gg') || '[]');
+
+        // Habits Initial State
+        let habits = [
+            { id: 1, text: "5-min morning coffee & prayer ☕", completed: false },
+            { id: 2, text: "Read Psalm / Scripture of the day 📖", completed: false },
+            { id: 3, text: "Write 3 gratitudes in journal ✍️", completed: false },
+            { id: 4, text: "Listen to cozy worship playlist 🎧", completed: false }
+        ];
+
+        // Web Audio API Synthesizer for Cozy Ambient Playback Simulation
+        let audioCtx = null;
+        let oscillator = null;
+        let isAudioPlaying = false;
+
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCurrentVerse();
+            renderSavedCount();
+            renderPrayers();
+            renderHabits();
+        });
+
+        // --- VERSE GENERATOR LOGIC ---
+        function renderCurrentVerse() {
+            const v = versesDatabase[currentVerseIndex];
+            document.getElementById('verse-text').innerText = `"${v.text}"`;
+            document.getElementById('verse-ref').innerText = v.ref;
+
+            const tagsContainer = document.getElementById('verse-tags');
+            tagsContainer.innerHTML = v.tags.map(t => 
+                `<span class="text-[10px] font-semibold tracking-wider text-blush-400 bg-blush-100 px-2.5 py-1 rounded-full">${t}</span>`
+            ).join('');
+
+            updateFavButtonUI();
+        }
+
+        function generateRandomVerse() {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * versesDatabase.length);
+            } while (newIndex === currentVerseIndex && versesDatabase.length > 1);
+
+            currentVerseIndex = newIndex;
+            renderCurrentVerse();
+            showToast("✨ Generated a new verse drop!");
+        }
+
+        function toggleSaveCurrentVerse() {
+            const current = versesDatabase[currentVerseIndex];
+            const existsIdx = savedVerses.findIndex(sv => sv.ref === current.ref);
+
+            if (existsIdx >= 0) {
+                savedVerses.splice(existsIdx, 1);
+                showToast("Removed from saved verses ♡");
+            } else {
+                savedVerses.push(current);
+                showToast("Saved to your favorites! ✨");
+            }
+
+            localStorage.setItem('saved_verses_gg', JSON.stringify(savedVerses));
+            updateFavButtonUI();
+            renderSavedCount();
+        }
+
+        function updateFavButtonUI() {
+            const current = versesDatabase[currentVerseIndex];
+            const isSaved = savedVerses.some(sv => sv.ref === current.ref);
+            const icon = document.getElementById('fav-btn-icon');
+            const text = document.getElementById('fav-btn-text');
+
+            if (isSaved) {
+                icon.className = "fa-solid fa-heart text-blush-400";
+                text.innerText = "Saved in Favorites";
+            } else {
+                icon.className = "fa-regular fa-heart text-blush-400";
+                text.innerText = "Save to Favorites";
+            }
+        }
+
+        function copyCurrentVerse() {
+            const v = versesDatabase[currentVerseIndex];
+            const str = `"${v.text}" - ${v.ref} ✨ (Via Grace & Glow)`;
+            
+            // Clipboard fallback
+            const tempInput = document.createElement('textarea');
+            tempInput.value = str;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast("Copied scripture to clipboard! 📋");
+        }
+
+        function renderSavedCount() {
+            document.getElementById('fav-count').innerText = savedVerses.length;
+        }
+
+        function toggleFavoritesModal() {
+            const modal = document.getElementById('fav-modal');
+            const content = document.getElementById('fav-modal-content');
+            const list = document.getElementById('fav-verses-list');
+
+            if (modal.classList.contains('opacity-0')) {
+                // Open Modal
+                if (savedVerses.length === 0) {
+                    list.innerHTML = `<p class="text-xs text-softbrown/60 text-center py-6">No saved verses yet. Click the heart on any verse drop to save it! ♡</p>`;
+                } else {
+                    list.innerHTML = savedVerses.map(sv => `
+                        <div class="p-3.5 bg-cream/80 rounded-2xl border border-blush-100 space-y-1">
+                            <p class="font-serif italic text-xs text-softbrown">"${sv.text}"</p>
+                            <span class="text-[10px] font-bold text-blush-400 uppercase tracking-wider block">${sv.ref}</span>
+                        </div>
+                    `).join('');
+                }
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('scale-95');
+            } else {
+                // Close Modal
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.add('scale-95');
+            }
+        }
+
+        // --- HEART & MOOD CHECKER LOGIC ---
+        function selectMood(moodKey) {
+            const data = moodData[moodKey];
+            if (!data) return;
+
+            const card = document.getElementById('mood-response-card');
+            const content = document.getElementById('mood-content');
+
+            content.innerHTML = `
+                <div class="space-y-3">
+                    <span class="text-xs font-semibold tracking-wider text-blush-400 uppercase bg-blush-100 px-3 py-1 rounded-full inline-block">
+                        Tailored Heart Message
+                    </span>
+                    <h3 class="font-serif text-xl font-bold text-softbrown">${data.title}</h3>
+                    <p class="font-serif italic text-base text-softbrown bg-white/70 p-4 rounded-2xl border border-blush-100">
+                        ${data.verse}
+                    </p>
+                    <div class="space-y-1 pt-1">
+                        <h4 class="text-xs font-bold text-softbrown uppercase tracking-wider">A Gentle Prayer For You</h4>
+                        <p class="text-xs sm:text-sm text-softbrown/80 leading-relaxed font-light">${data.prayer}</p>
+                    </div>
+                    <div class="p-3 bg-blush-100/50 rounded-2xl border border-blush-200/60 text-xs text-softbrown flex items-center gap-2">
+                        <span>✨</span>
+                        <p class="italic font-medium">${data.encouragement}</p>
+                    </div>
+                </div>
+            `;
+
+            card.classList.remove('hidden');
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            showToast("Heart message generated ♡");
+        }
+
+        // --- PRAYER JAR LOGIC ---
+        function addPrayerNote() {
+            const authorInput = document.getElementById('prayer-author');
+            const textInput = document.getElementById('prayer-text');
+            const typeInput = document.getElementById('prayer-type');
+
+            const text = textInput.value.trim();
+            if (!text) {
+                showToast("Please write a prayer or gratitude note first! 🌸");
+                return;
+            }
+
+            const author = authorInput.value.trim() || "Daughter of Grace ✨";
+            const newPrayer = {
+                id: Date.now(),
+                author,
+                text,
+                type: typeInput.value,
+                answered: false,
+                date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+            };
+
+            prayersList.unshift(newPrayer);
+            localStorage.setItem('prayers_gg', JSON.stringify(prayersList));
+
+            textInput.value = '';
+            authorInput.value = '';
+
+            renderPrayers();
+            showToast("Dropped in your prayer jar! 🏺✨");
+        }
+
+        function renderPrayers(filter = 'all') {
+            const container = document.getElementById('prayer-notes-container');
+            const emptyMsg = document.getElementById('empty-journal-msg');
+            const countEl = document.getElementById('prayer-count');
+
+            let filtered = prayersList;
+            if (filter === 'answered') {
+                filtered = prayersList.filter(p => p.answered);
+            }
+
+            countEl.innerText = prayersList.length;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                emptyMsg.classList.remove('hidden');
+                return;
+            }
+
+            emptyMsg.classList.add('hidden');
+            container.innerHTML = filtered.map(p => `
+                <div class="polaroid-shadow rounded-2xl p-4 bg-white border ${p.answered ? 'border-emerald-200 bg-emerald-50/30' : 'border-blush-100'} flex flex-col justify-between space-y-3 relative group">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-wider ${p.type === 'gratitude' ? 'text-amber-500 bg-amber-50' : 'text-blush-400 bg-blush-50'} px-2 py-0.5 rounded-full">
+                                ${p.type === 'gratitude' ? '🌷 Praise' : '🙏 Prayer'}
+                            </span>
+                            <span class="text-[10px] text-softbrown/50">${p.date}</span>
+                        </div>
+                        <p class="text-xs text-softbrown font-light leading-relaxed">"${p.text}"</p>
+                    </div>
+
+                    <div class="pt-2 border-t border-blush-50 flex items-center justify-between">
+                        <span class="text-[10px] font-semibold text-softbrown/70">~ ${p.author}</span>
+                        <div class="flex items-center gap-1">
+                            ${!p.answered ? `
+                                <button onclick="markPrayerAnswered(${p.id})" class="text-[10px] font-semibold text-emerald-600 hover:bg-emerald-100 px-2 py-1 rounded-full transition-colors">
+                                    Answered? 🎉
+                                </button>
+                            ` : `
+                                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">God Answered! ✨</span>
+                            `}
+                            <button onclick="deletePrayer(${p.id})" class="text-softbrown/30 hover:text-rose-400 text-xs px-1">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function markPrayerAnswered(id) {
+            const prayer = prayersList.find(p => p.id === id);
+            if (prayer) {
+                prayer.answered = true;
+                localStorage.setItem('prayers_gg', JSON.stringify(prayersList));
+                renderPrayers();
+
+                // Confetti Celebration
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 80,
+                        spread: 60,
+                        origin: { y: 0.7 },
+                        colors: ['#fca1b7', '#ffd6e0', '#d4a373', '#e2ece9']
+                    });
+                }
+                showToast("Praise God! Answered prayer celebrated 🎉✨");
+            }
+        }
+
+        function deletePrayer(id) {
+            prayersList = prayersList.filter(p => p.id !== id);
+            localStorage.setItem('prayers_gg', JSON.stringify(prayersList));
+            renderPrayers();
+            showToast("Note removed from jar ♡");
+        }
+
+        function filterPrayers(type) {
+            renderPrayers(type);
+        }
+
+        // --- HABITS TRACKER LOGIC ---
+        function renderHabits() {
+            const container = document.getElementById('habits-container');
+            const completedCount = habits.filter(h => h.completed).length;
+            const progressPct = Math.round((completedCount / habits.length) * 100);
+
+            document.getElementById('habit-progress-text').innerText = `${completedCount} of ${habits.length} Completed`;
+            document.getElementById('habit-progress-bar').style.width = `${progressPct}%`;
+
+            const encouragements = [
+                "Rooted & Blooming... Let's spend time with Him today! ✨",
+                "Slaying in the Spirit! Keep glowing ♡",
+                "Halfway there! Your spirit is refreshed 🌷",
+                "Almost complete! Walking in grace 💖",
+                "All habits done! You're glowing in His love today! 💅✨"
+            ];
+            document.getElementById('habit-encouragement').innerText = encouragements[completedCount] || encouragements[0];
+
+            container.innerHTML = habits.map(h => `
+                <div onclick="toggleHabit(${h.id})" class="p-3.5 rounded-2xl bg-cream/70 hover:bg-blush-50 border border-blush-100 flex items-center justify-between cursor-pointer transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 rounded-lg border ${h.completed ? 'bg-blush-400 border-blush-400 text-white' : 'border-blush-300 bg-white'} flex items-center justify-center text-xs">
+                            ${h.completed ? '<i class="fa-solid fa-check"></i>' : ''}
+                        </div>
+                        <span class="text-xs sm:text-sm font-medium ${h.completed ? 'line-through text-softbrown/50' : 'text-softbrown'}">
+                            ${h.text}
+                        </span>
+                    </div>
+                    <span class="text-xs text-blush-400 font-semibold">${h.completed ? 'Done ♡' : 'Tap to complete'}</span>
+                </div>
+            `).join('');
+        }
+
+        function toggleHabit(id) {
+            const h = habits.find(item => item.id === id);
+            if (h) {
+                h.completed = !h.completed;
+                renderHabits();
+                if (h.completed) showToast("Habit completed! Glow up ✨");
+            }
+        }
+
+        // --- AUDIO / MUSIC PLAYER SIMULATION ---
+        function playAudioTrack(title, icon) {
+            const player = document.getElementById('mini-player');
+            const playerTitle = document.getElementById('player-title');
+            const playerIcon = document.getElementById('player-icon');
+
+            playerTitle.innerText = title;
+            playerIcon.innerText = icon;
+
+            player.classList.remove('hidden');
+            isAudioPlaying = true;
+            updateAudioUI();
+
+            // Web Audio Synth Gentle Ambient Tone
+            startSynthTone();
+            showToast(`Playing ${title} 🎧`);
+        }
+
+        function toggleAudioPlay() {
+            isAudioPlaying = !isAudioPlaying;
+            updateAudioUI();
+            if (!isAudioPlaying) {
+                stopSynthTone();
+            } else {
+                startSynthTone();
+            }
+        }
+
+        function updateAudioUI() {
+            const toggleBtn = document.getElementById('player-toggle-btn');
+            const status = document.getElementById('player-status');
+
+            if (isAudioPlaying) {
+                toggleBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+                status.innerText = "Playing Ambient Vibes...";
+            } else {
+                toggleBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+                status.innerText = "Paused";
+            }
+        }
+
+        function closeAudioPlayer() {
+            document.getElementById('mini-player').classList.add('hidden');
+            stopSynthTone();
+            isAudioPlaying = false;
+        }
+
+        function startSynthTone() {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                stopSynthTone();
+
+                oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(220, audioCtx.currentTime); // Soft A3 tone
+
+                gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime); // Gentle soft background tone
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                oscillator.start();
+            } catch (e) {
+                console.log('Audio synth playback warm start');
+            }
+        }
+
+        function stopSynthTone() {
+            if (oscillator) {
+                try {
+                    oscillator.stop();
+                    oscillator.disconnect();
+                } catch(e) {}
+                oscillator = null;
+            }
+        }
+
+        // --- WALLPAPER DOWNLOAD SIMULATION ---
+        function downloadWallpaper(title, ref) {
+            // Create a dynamic canvas wallpaper image download
+            const canvas = document.createElement('canvas');
+            canvas.width = 1080;
+            canvas.height = 1920;
+            const ctx = canvas.getContext('2d');
+
+            // Soft Gradient Background
+            const grad = ctx.createLinearGradient(0, 0, 0, 1920);
+            grad.addColorStop(0, '#ffeef2');
+            grad.addColorStop(0.5, '#faf6f0');
+            grad.addColorStop(1, '#f0e6f6');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 1080, 1920);
+
+            // Title / Branding
+            ctx.fillStyle = '#f76f92';
+            ctx.font = 'bold 36px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('GRACE & GLOW ✨', 540, 300);
+
+            // Verse Text
+            ctx.fillStyle = '#5a4e44';
+            ctx.font = 'italic 52px Georgia, serif';
+            ctx.fillText(`"${title}"`, 540, 900);
+
+            ctx.fillStyle = '#d4a373';
+            ctx.font = 'bold 38px sans-serif';
+            ctx.fillText(ref, 540, 1000);
+
+            // Trigger Download
+            const link = document.createElement('a');
+            link.download = `grace-glow-lockscreen-${title.toLowerCase().replace(/\s+/g, '-')}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+
+            showToast("Downloading lockscreen wallpaper! 📲✨");
+        }
+
+        // --- NEWSLETTER LOGIC ---
+        function handleNewsletter(e) {
+            e.preventDefault();
+            showToast("Yay! You're subscribed to Weekly Faith Drops 💌");
+            e.target.reset();
+        }
+
+        // --- MOBILE NAVIGATION ---
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- UTILITY TOAST NOTIFICATION ---
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-msg');
+
+            msg.innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
